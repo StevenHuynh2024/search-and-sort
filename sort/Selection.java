@@ -16,7 +16,29 @@ public class Selection
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
+    int i = 0;
+    int j;
+    int min;
+    int temp;
+    int minIndex;
+    while (i< arr.length -1) {
+        j=i;
+        min=arr[j];
+        minIndex=j;
+        temp=arr[j];
+        while (j < arr.length -1) {
+            while (min > arr[j+1]) {
+                min = arr[j+1];
+                minIndex = j+1;
+            }
+            j++;
+        }
+        arr[i] = min;
+        arr[minIndex] = temp;
+        i++;
+    }
+    
+    return arr;
   }
   
   public static void main(String[] args) {
