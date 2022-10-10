@@ -1,4 +1,4 @@
-package sort;
+ package sort;
 
 import java.util.Arrays;
 
@@ -16,7 +16,33 @@ public class Merge
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
+    int N = arr.length;
+    int middle;
+    int leftLength;
+    int rightLength;
+    int index;
+    int rightIndex;
+    int[] left = {};
+    int[] right = {};
+    while (N<=1) {
+        middle = N/2;
+        leftLength = middle;
+        rightLength = N - leftLength;
+        index = 0;
+        while (index < middle) {
+            left[index] = arr[index];
+            index++;
+        }
+        rightIndex = 0;
+        index = middle;
+        while (index < N) {
+            right[rightIndex] = arr[index];
+            rightIndex++;
+            index++;
+        }
+        MergeSort(left);
+    }
+    return arr;
   }
   
   public static void main(String[] args) {
