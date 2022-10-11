@@ -24,7 +24,7 @@ public class Merge
         int rightIndex;
         int[] left = {};
         int[] right = {};
-        while (N>1) {
+        while (N<=1) {
             return arr;   
         }
         middle = N/2;
