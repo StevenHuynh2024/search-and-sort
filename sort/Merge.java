@@ -15,37 +15,24 @@ public class Merge
      * Returns the sorted array
      */
     public static int[] sort(int[] arr) {
-        // Your algorithm goes here!
         int N = arr.length;
-        int middle;
-        int leftLength;
-        int rightLength;
-        int index;
-        int rightIndex;
-        int[] left = {};
-        int[] right = {};
-        while (N<=1) {
-            return arr;   
+        if (N < 2) {
+            return arr;
         }
-        middle = N/2;
-        leftLength = middle;
-        rightLength = N - leftLength;
-        index = 0;
-        while (index < middle) {
-            left[index] = arr[index];
-            index++;
+        int midIndex = N / 2;
+        int[] leftHalf = new int[midIndex];
+        int[] rightHalf = new int[N - midIndex];
+        
+        for (int i = 0; i < midIndex; i++) {
+            leftHalf[i] = arr[i];
         }
-        rightIndex = 0;
-        index = middle;
-        while (index < N) {
-            right[rightIndex] = arr[index];
-            rightIndex++;
-            index++;
+        
+        for (int i = midIndex; i < N; i++) {
+            rightHalf[i - midIndex] = arr[i];
         }
-        sort(left);
-        sort(right);
-        merge(arr,left,right);
-
+        sort(leftHalf);
+        sort(rightHalf);
+        merge(arr,leftHalf,rightHalf);
         return arr;
     }
 
@@ -72,7 +59,7 @@ public class Merge
             i++;
             k++;
         }
-        while (j < leftSize) {
+        while (j < rightSize) {
             arr[k] = right[j];
             j++;
             k++;
