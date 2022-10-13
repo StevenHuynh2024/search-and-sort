@@ -14,22 +14,13 @@ public class Sequential
      */
     public static int search(int[] arr, int target) {
         // Your algorithm goes here!
-        int i = 0;
-        while (arr[i] != target && i < arr.length) {
-            if (arr[i] != target && i >= arr.length) {
-                i = -1;
+        
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
                 return i;
             }
-            i++;
         }
-
-        if (arr[i] == target) {
-            System.out.println("Item found at index " + i);
-        }
-        if (i == -1) {
-            System.out.println("Item not found");
-        }
-        return i;
+        return -1;
     }
 
     public static void main(String[] args) {
