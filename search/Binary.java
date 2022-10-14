@@ -1,3 +1,5 @@
+package search;
+
 
 /**
  * Write a description of class Binary here.
